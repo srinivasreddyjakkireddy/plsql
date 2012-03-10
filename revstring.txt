@@ -1,0 +1,11 @@
+create or replace procedure revstr(V_Str Varchar2)
+AS
+V_Str1 Varchar2(30):=V_Str;
+V_Rev  Varchar2(30);
+BEGIN
+  V_Rev:=SUBSTR(V_Str1,LENGTH(V_Str1),1);
+  FOR I IN reverse 1..LENGTH(V_Str1)-1 LOOP
+    V_Rev:=V_Rev||SUBSTR(V_Str1,I,1);
+    END LOOP;
+    DBMS_OUTPUT.PUT_LINE(V_Rev);
+    END;
