@@ -1,0 +1,30 @@
+create or replace procedure diamond(a Number)
+is
+V_Num  Number:=a;
+V_Star varchar2(30):='*';
+V_Chr  VARCHAR2(40):='';
+BEGIN
+  FOR I IN 1..V_Num LOOP
+    FOR J IN I..V_Num-1 LOOP
+      V_Chr:=V_Chr||' ';
+       END LOOP;
+        V_Chr:=V_Chr||V_Star;
+      DBMS_OUTPUT.PUT_LINE(V_Chr);
+      V_Star:=V_Star||' '||'*';
+      V_Chr:=NULL;
+      End loop;
+      V_Star:='*';
+        for K IN 1..V_Num-1 LOOP
+      for L in 1..K loop
+          V_Chr:=V_Chr||' ';
+          end loop;
+          for M IN K..V_Num-2 LOOP
+            V_Star:=V_Star||' '||'*';
+            END LOOP;
+            V_Star:=V_Chr||V_Star;
+            DBMS_OUTPUT.PUT_LINE(V_Star);
+            V_Star:=NULL;
+            V_Chr:='';
+            End loop;
+       End;
+      
